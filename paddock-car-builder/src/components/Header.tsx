@@ -1,5 +1,5 @@
 function Header(){
-    return <div className="app-header">
+    return <div className="header">
         <a href="/home">
             <img
             src="../PCBLogo.png"

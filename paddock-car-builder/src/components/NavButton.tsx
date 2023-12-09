@@ -18,7 +18,6 @@ const NavButton = ({name}: Props) => {
 
     const getImageSouce = () => {
         return clicked ? '../Buttons/'+ name +'1.png' : '../Buttons/' + name + '2.png';
-        console.log({name});
     };
 
     return <img

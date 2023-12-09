@@ -1,7 +1,12 @@
+body{
+  background: #dddddd;
+}
+
+
 .app{
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(grey,white);
+  background-color: #dddddd;
 }
 
 .button{
@@ -9,14 +14,81 @@
     transition: all;
   };
 
-.app-header{
+@mixin headers{
   width: 100%;
   display: grid;
   align-content: center;
   justify-content: center;
+}
+
+.home-header{
+  @include headers;
+
+  img{
+    width: 600px;
+  }
+}
+
+.header{
+  @include headers;
   background-color: white;
 
   img{
-    width: 400px;
+    width: 300px;
+  }
+}
+
+@mixin grid-center{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.home-button{
+  background-color: #ffffff;
+  height: 200px;
+  border-radius: 25px;
+  @include grid-center;
+
+  & :hover{
+    opacity: 0.9;
+  }
+
+  &-fill{
+    background-color: #00145c;
+    height: 170px;
+    border-radius: 16px;
+    @include grid-center;
+
+    &-content{
+      width: 140px;
+    }
+
+    &.narrow-button-fill{
+      width: 290px;
+    }
+
+    &.wide-button-fill{
+      width: 630px;
+    }
+  }
+
+  &.narrow-button{
+      width: 320px;
+  }
+
+  &.wide-button{
+    width: 660px;
+  }
+}
+
+.home-menu{
+  padding-top: 100px;
+  @include grid-center;
+  gap: 20px;
+
+  &-row-1{
+    display: flex;
+    gap: 20px;
   }
 }

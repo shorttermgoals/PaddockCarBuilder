@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'konnect';
+  src: url('../fonts/KonnectBlack.otf');
+}
+
+h1,a{
+  font-family: 'konnect';
+}
+
 body{
   background: #dddddd;
 }
@@ -31,7 +40,6 @@ body{
 
 .header{
   @include headers;
-  background-color: white;
 
   img{
     width: 300px;
@@ -50,8 +58,8 @@ body{
   border-radius: 25px;
   @include grid-center;
 
-  & :hover{
-    opacity: 0.9;
+  &:hover{
+    opacity: 0.85;
   }
 
   &-fill{
@@ -91,4 +99,51 @@ body{
     display: flex;
     gap: 20px;
   }
+}
+
+.button-tiny{
+  margin-top: 30px;
+    background-color: #ae0006;
+    height: 60px;
+    width: 80px;
+    border-radius: 10px;
+    @include grid-center;
+
+    &:hover{
+      opacity: 0.85;
+    }
+
+    &-fill{
+      background-color: #e70006;
+      height: 46px;
+      width: 65px;
+      border-radius: 5px;
+      @include grid-center;
+
+      img{
+        width: 35px;
+      }
+    }
+}
+
+.container-404{
+  margin-top: 80px;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: start;
+
+  &-header{
+    font-size: 150px;
+  }
+
+  &-comment{
+    font-size: 40px;
+  }
+
+  &-img{
+    width: 800px;
+  }
+
+
 }

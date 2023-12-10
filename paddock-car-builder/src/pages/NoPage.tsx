@@ -1,5 +1,22 @@
+import ButtonHome from '../components/ReturnHomeButton';
+
 function NoPage(){
-    return <h1>No page</h1>
+
+    const header = 'SLOW DOWN!'
+    const line1 = '...OOPS, LOOKS LIKE YOU EXCEEDED THE SPEED LIMIT.'
+    const line2 = 'PAY THE FINE AND HEAD BACK TO THE GARAGE.'
+
+    return <div className="container-404">
+        <a className='container-404-header'>{header}</a>
+        <a className='container-404-comment'>{line1}</a>    
+        <a className='container-404-comment'>{line2}</a>    
+        <img
+        className='container-404-img'
+        src="../993CameraCombo.png"
+        alt="993 caught by speed camera"
+        />
+        <ButtonHome/>
+    </div>
 }
 
 export default NoPage

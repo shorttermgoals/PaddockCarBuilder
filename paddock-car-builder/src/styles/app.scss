@@ -126,24 +126,74 @@ body{
     }
 }
 
-.container-404{
-  margin-top: 80px;
+@mixin containers{
+    margin-top: 40px;
   display: grid;
   justify-content: center;
   justify-items: center;
   align-items: start;
+}
 
-  &-header{
-    font-size: 150px;
+.container{
+
+  &-garage{
+    @include containers;
+
+    &-wall{
+      margin-top: 30px;
+      width: 1100px;
+      height: 500px;
+      background-color: #282c59;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+      position: relative;
+    }
+
+    &-painting{
+      margin-top: 80px;
+      width: 200px;
+      position: relative;
+      z-index: 1;
+    }
+
+    &-floor{
+
+
+      
+      display: grid;
+      grid-template-columns: 1.09fr 0.91fr;
+
+
+      &-furniture{
+      width: 500px;
+      position: relative;
+      top: -50px;
+      z-index: 2;
+    }
+    }
+
+    
   }
 
-  &-comment{
-    font-size: 40px;
+
+  &-404{
+
+    @include containers;
+
+    &-header{
+      font-size: 150px;
+    }
+
+    &-comment{
+      font-size: 40px;
+    }
+
+    &-img{
+      width: 800px;
+    }
   }
 
-  &-img{
-    width: 800px;
-  }
 
 
 }

@@ -1,5 +1,6 @@
 import CustomHeader from '../components/Header'
 import ReturnHomeButton from '../components/ReturnHomeButton'
+import Car from '../components/Car'
 
 function Garage(){
 return <div>
@@ -16,7 +17,9 @@ return <div>
             </div>
         </div>
         <div className='container-garage-floor'>
-            <div className='container-garage-floor-car'></div>
+            <div className='container-garage-floor-car'>
+                <Car/>
+            </div>
             <img
             className='container-garage-floor-furniture'
             src='../Furniture.png'

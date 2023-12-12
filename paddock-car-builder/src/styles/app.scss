@@ -159,16 +159,19 @@ body{
 
     &-floor{
 
-
-      
       display: grid;
       grid-template-columns: 1.09fr 0.91fr;
 
+      &-car{
+        position: relative;
+        top: -270px;
+        z-index: 2;
+      }
 
       &-furniture{
       width: 500px;
       position: relative;
-      top: -50px;
+      top: -100px;
       z-index: 2;
     }
     }
@@ -196,4 +199,11 @@ body{
 
 
 
+}
+
+.car{
+  img{
+    width: 400px;
+    position: absolute;
+  }
 }

@@ -1,11 +1,12 @@
 import CustomHeader from '../components/Header'
+import Car from '../components/Car'
 
 
 
 function Workshop(){
 return <>
     <CustomHeader/>
-    <h1>Workshop</h1>
+    <Car/>
 </>
 
 }

@@ -2,10 +2,11 @@ import React, { useState} from "react";
 
 interface Props {
     name: string;
+    number: string;
     
 }
 
-const PartButton = ({name}: Props) => {
+const SelectPartButton = ({name,number}: Props) => {
     const [clicked, setClicked] = useState(false);
 
     const handleClick = () => {
@@ -17,7 +18,7 @@ const PartButton = ({name}: Props) => {
     };
 
     const getImageSouce = () => {
-        return clicked ? '../Buttons/'+ name +'p.png' : '../Buttons/' + name + '.png';
+        return clicked ? '../Buttons/'+ name +'/' + number + 'p.png' : '../Buttons/' + name + '/' + number + '.png';
     };
 
     return <img
@@ -30,4 +31,4 @@ const PartButton = ({name}: Props) => {
 
 };
 
-export default PartButton;
+export default SelectPartButton;

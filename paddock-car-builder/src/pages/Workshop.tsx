@@ -2,17 +2,28 @@ import CustomHeader from '../components/Header'
 import Car from '../components/Car'
 import PartButton from '../components/PartButton'
 import SelectPartButton from '../components/SelectPartButton'
+import { useState } from 'react'
 
 
 
 function Workshop(){
+
+const [selectedPart, setSelectedPart] = useState({name:''});
+const [activeButton, setActiveButton] = useState<string | null>(null);
+
+
+const handlePartClick = (name:string) => {
+    setSelectedPart({name});
+    setActiveButton(name);
+}
+
 return <>
     <CustomHeader/>
     <div className='container-workshop'>
         <div className='container-workshop-left'>
-            <PartButton name='PD'/>
-            <PartButton name='PT'/>
-            <PartButton name='L'/>
+            <PartButton name='PD' isActive={activeButton === "PD"} onClick={() => handlePartClick('PD')}/>
+            <PartButton name='PT' isActive={activeButton === "PT"} onClick={() => handlePartClick('PT')}/>
+            <PartButton name='L' isActive={activeButton === "L"} onClick={() => handlePartClick('L')}/>
         </div>
         <div className='container-workshop-middle'>
             <div className='container-workshop-wall'>
@@ -27,8 +38,8 @@ return <>
             </div>
         </div>
         <div className='container-workshop-right'>
-            <SelectPartButton name='PD' number='EMPTY'/>
-            <SelectPartButton name='PD' number='1'/>
+            <SelectPartButton name={selectedPart.name} number='EMPTY'/>
+            <SelectPartButton name={selectedPart.name} number='1'/>
         </div>
         
         

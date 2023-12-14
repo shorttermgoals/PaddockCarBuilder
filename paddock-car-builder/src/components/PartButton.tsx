@@ -1,19 +1,27 @@
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 
 interface Props {
     name: string;
-    
+    onClick: () => void;
+    isActive: boolean;
 }
 
-const PartButton = ({name}: Props) => {
+const PartButton = ({name,onClick,isActive}: Props) => {
     const [clicked, setClicked] = useState(false);
+
+    useEffect(() => {
+        if (!isActive) {
+            setClicked(false);
+        }
+    }, [isActive]);
 
     const handleClick = () => {
         setClicked(true);
 
-        //setTimeout(() => {
-          //  setClicked(false);
-        //}, 100);
+        if (onClick){
+            onClick();
+        }
+        
     };
 
     const getImageSouce = () => {

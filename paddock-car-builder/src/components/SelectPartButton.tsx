@@ -3,10 +3,11 @@ import React, { useEffect, useState} from "react";
 interface Props {
     name: string;
     number: string;
-    
+    onClick: () => void;
+    isActive:boolean;
 }
 
-const SelectPartButton = ({name,number}: Props) => {
+const SelectPartButton = ({name,number,onClick,isActive}: Props) => {
     const [clicked, setClicked] = useState(false);
     const [srcExists, setSrcExists] = useState<boolean | null>(null);
 
@@ -20,14 +21,20 @@ const SelectPartButton = ({name,number}: Props) => {
         checkSrcExists();
     },[name, number]);
 
+    useEffect(() => {
+        if(!isActive){
+            setClicked(false);
+        }
+    }, [isActive]);
+
    
 
     const handleClick = () => {
         setClicked(true);
 
-        //setTimeout(() => {
-          //  setClicked(false);
-        //}, 100);
+        if(onClick){
+            onClick();
+        }
     };
 
     const getImageSouce = () => {

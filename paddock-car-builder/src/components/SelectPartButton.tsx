@@ -50,6 +50,7 @@ const SelectPartButton = ({name,number,onClick,isActive}: Props) => {
 
     return  srcExists !== false ? (
         <img
+        id={name + number}
         src={getImageSouce()}
         className="button"
         alt="Button"

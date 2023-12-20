@@ -54,7 +54,17 @@ class Car extends Component<CarProps, CarState> {
 
     static getDerivedStateFromProps(nextProps: CarProps, prevState: CarState) {
         // Compara las props actuales con las props anteriores
-        if (nextProps !== prevState) {
+        if (
+            nextProps.chassis !== prevState.chassis ||
+            nextProps.body !== prevState.body ||
+            nextProps.details !== prevState.details ||
+            nextProps.front !== prevState.front ||
+            nextProps.rear !== prevState.rear ||
+            nextProps.skirt !== prevState.skirt ||
+            nextProps.wing !== prevState.wing ||
+            nextProps.rims !== prevState.rims ||
+            nextProps.color !== prevState.color
+            ) {
           // Devuelve el nuevo estado basado en las nuevas props
           return { ...nextProps };
         }

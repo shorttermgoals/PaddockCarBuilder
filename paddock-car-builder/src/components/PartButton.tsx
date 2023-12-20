@@ -29,6 +29,7 @@ const PartButton = ({name,onClick,isActive}: Props) => {
     };
 
     return <img
+        id={name}
         src={getImageSouce()}
         className="button"
         alt="Button"

@@ -12,6 +12,7 @@ const [selectedPart, setSelectedPart] = useState({name:''});
 const [selectedNumber, setSelectedNumber] = useState({number:''});
 const [activePart, setActivePart] = useState<string | null>(null);
 const [activeSelectedPart, setActiveSelectedPart] = useState<string | null>(null);
+const [generatedButtons, setGeneratedButtons] = useState<JSX.Element[]>([]);
 const [newCarData, setNewCarData] = useState({
     chassis: '993',
     body: 0,
@@ -34,19 +35,46 @@ useEffect(() => {
 
     }));
     console.log("Data nuevo: " + newCarData);
-}, [selectedNumber]);
+    generatePartOptions(selectedPart.name, activeSelectedPart);
+
+}, [selectedNumber, selectedPart, activeSelectedPart]);
+
 
 
 const handlePartClick = (name:string) => {
     setSelectedPart({name});
     setActivePart(name);
+    setGeneratedButtons([]);
 }
 const handlePartNumberClick = (number:string) => {
     setSelectedNumber({number});
     setActiveSelectedPart(number);
 }
 
+const generatePartOptions = (partName: string, isActive: string | null) => {
 
+    if (activePart === partName){
+        let buttons = [];
+        for (let i = 0; i <=3; i++) {
+
+            const currentNumber = i.toString();
+            const isActive = activeSelectedPart === currentNumber;
+
+            buttons.push(
+            <SelectPartButton 
+                key={currentNumber}
+                name={partName} 
+                number={currentNumber} 
+                onClick={() => handlePartNumberClick(currentNumber)}
+                isActive={isActive}
+                />
+            );
+        };
+        setGeneratedButtons(buttons);
+    }
+           
+
+};
 
 return <>
     <CustomHeader/>
@@ -69,18 +97,7 @@ return <>
             </div>
         </div>
         <div className='container-workshop-right'>
-            <SelectPartButton 
-            name={selectedPart.name} 
-            number='EMPTY' 
-            onClick={() => handlePartNumberClick('2')}
-            isActive={activeSelectedPart === "2"}
-            />
-            <SelectPartButton 
-            name={selectedPart.name} 
-            number='1' 
-            onClick={() => handlePartNumberClick('1')}
-            isActive={activeSelectedPart === "1"}
-            />
+            {generatedButtons}
         </div>
         
         

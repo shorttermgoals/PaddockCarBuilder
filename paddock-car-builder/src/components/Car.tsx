@@ -37,10 +37,24 @@ class Car extends Component<CarProps, CarState> {
             rear: props.rear || 1,
             skirt: props.skirt || 1,
             wing: props.wing || 1,
-            rims: props.rims || 0,
+            rims: props.rims || 1,
             color: props.color || '#bfbfbf',
         };
     }
+
+    updateCarData = (newData: CarProps) => {
+        this.setState({
+            chassis: newData.chassis || '993',
+            body: newData.body || 0,
+            details: newData.details || 0,
+            front: newData.front || 1,
+            rear: newData.rear || 1,
+            skirt: newData.skirt || 1,
+            wing: newData.wing || 1,
+            rims: newData.rims || 1,
+            color: newData.color || '#bfbfbf',
+        });
+    };
 
     changeFront = (newFront: number) => {
         this.setState({front: newFront});
@@ -69,7 +83,6 @@ class Car extends Component<CarProps, CarState> {
           return { ...nextProps };
         }
 
-        //AL VOLVER A PONER EL FRONT QUE SE ENCUENTRA POR DEFECTO NO PARECE RECIBIRLO Y ACTUALIZAR LA CLASE QUIZA POR LA SIMILITUD A LA PREVIA ALTERACION
     
         // Si no hay cambios, devuelve null
         return null;

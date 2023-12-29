@@ -3,8 +3,19 @@ import Car from '../components/Car'
 import PartButton from '../components/PartButton'
 import SelectPartButton from '../components/SelectPartButton'
 import { useState, useEffect, useRef } from 'react'
+import { getCarData, setCarData } from '../components/carDataTransport'
 
-
+interface CarData {
+    chassis: string;
+    body: number;
+    details: number;
+    front: number;
+    rear: number;
+    skirt: number;
+    wing: number;
+    rims: number;
+    color: string;
+  }
 
 function Workshop(){
 
@@ -14,7 +25,7 @@ const [selectedNumber, setSelectedNumber] = useState({number:'1'});
 const [activePart, setActivePart] = useState<string | null>(null);
 const [activeSelectedPart, setActiveSelectedPart] = useState<string | null>(null);
 const [generatedButtons, setGeneratedButtons] = useState<JSX.Element[]>([]);
-const [newCarData, setNewCarData] = useState({
+const [newCarData, setNewCarData] = useState<CarData>(() => getCarData() || {
     chassis: '993',
     body: 0,
     details: 0,
@@ -24,7 +35,7 @@ const [newCarData, setNewCarData] = useState({
     wing: 0,
     rims: 1,
     color: '#bfbfbf',
-})
+  });
 
 
 const updateCarParts = (part: string, partNumber: string) => {
@@ -39,7 +50,6 @@ const updateCarParts = (part: string, partNumber: string) => {
     }
 
     console.log("Numero seleccionado: " + selectedNumber.number); 
-    console.log(newFront,newRear + "holaaa")
 
     setNewCarData((prevData) => ({
         ...prevData,
@@ -52,11 +62,12 @@ const updateCarParts = (part: string, partNumber: string) => {
 
 // useEffect se usa para realizar operaciones cada vez que se renderice el componente
 useEffect(() => {
+
+    setCarData(newCarData);
     
     generatePartOptions(selectedPart.name, selectedNumber.number,activeSelectedPart);
 
 }, [selectedNumber, selectedPart, activeSelectedPart]);
-
 
 const handlePartClick = (name:string) => {
     setSelectedPart({name});
@@ -78,8 +89,6 @@ const generatePartOptions = (partName: string, partNumber: string, isActive: str
         for (let i = 0; i <=3; i++) {
 
             const currentNumber = i.toString();
-            const datoCoche = activePart + partNumber;
-            const datoBoton = partName + partNumber;
 
             const isActive = activeSelectedPart === currentNumber;
 

@@ -1,8 +1,12 @@
 import CustomHeader from '../components/Header'
 import ReturnHomeButton from '../components/ReturnHomeButton'
 import Car from '../components/Car'
+import { getCarData } from '../components/carDataTransport'
 
 function Garage(){
+
+const carData = getCarData();
+
 return <div>
     <CustomHeader/>
     <div className='container-garage'>
@@ -18,7 +22,7 @@ return <div>
         </div>
         <div className='container-garage-floor'>
             <div className='container-garage-floor-car'>
-                <Car/>
+                <Car {...carData}/>
             </div>
             <img
             className='container-garage-floor-furniture'

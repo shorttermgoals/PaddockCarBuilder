@@ -30,7 +30,7 @@ function HomeButtons({type, source, hiper}: Props){
         front: 1,
         rear: 1,
         skirt: 1,
-        wing: 0,
+        wing: 1,
         rims: 1,
         color: '#bfbfbf',
       });
@@ -41,6 +41,8 @@ function HomeButtons({type, source, hiper}: Props){
             front: 1,
             rear: 1,
             skirt: 1,
+            wing: 0,
+            rims: 2,
     
     
         }));

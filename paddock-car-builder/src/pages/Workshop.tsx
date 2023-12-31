@@ -44,6 +44,9 @@ const updateCarParts = (part: string, partNumber: string) => {
     let newFront = newCarData.front;
     let newRear = newCarData.rear;
     let newSkirt = newCarData.skirt;
+    let newWing = newCarData.wing;
+    let newRims = newCarData.rims;
+    
 
     if (part === 'front') {
         newFront = parseInt(partNumber);
@@ -51,7 +54,11 @@ const updateCarParts = (part: string, partNumber: string) => {
         newRear = parseInt(partNumber);
     } else if (part === 'skirt') {
         newSkirt = parseInt(partNumber);
-    }
+    } else if (part === 'wing') {
+        newWing = parseInt(partNumber);
+    } else if (part === 'rims') {
+        newRims = parseInt(partNumber);
+    } 
 
     console.log("Numero seleccionado: " + selectedNumber.number); 
 
@@ -60,6 +67,8 @@ const updateCarParts = (part: string, partNumber: string) => {
         front: newFront,
         rear: newRear,
         skirt: newSkirt,
+        wing: newWing,
+        rims: newRims,
 
 
     }));
@@ -123,6 +132,7 @@ return <>
                 <PartButton name='front' isActive={activePart === "front"} onClick={() => handlePartClick('front')}/>
                 <PartButton name='rear' isActive={activePart === "rear"} onClick={() => handlePartClick('rear')}/>
                 <PartButton name='skirt' isActive={activePart === "skirt"} onClick={() => handlePartClick('skirt')}/>
+                <PartButton name='wing' isActive={activePart === "wing"} onClick={() => handlePartClick('wing')}/>                
                 <PartButton name='rims' isActive={activePart === "rims"} onClick={() => handlePartClick('rims')}/>
             </> : 
             <></>}

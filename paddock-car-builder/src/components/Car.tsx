@@ -37,7 +37,7 @@ class Car extends Component<CarProps, CarState> {
             rear: props.rear || 1,
             skirt: props.skirt || 1,
             wing: props.wing || 1,
-            rims: props.rims || 1,
+            rims: props.rims || 2,
             color: props.color || '#bfbfbf',
         };
     }
@@ -98,7 +98,7 @@ class Car extends Component<CarProps, CarState> {
                     <img src={`../cars/${this.state.chassis}/${this.state.chassis}chassis.png`} />
                 )}
                 {this.state.chassis && (
-                    <img src={`../cars/${this.state.chassis}/${this.state.chassis}body.png`} />
+                    <img src={`../cars/${this.state.chassis}/${this.state.chassis}body.svg`} />
                 )}
                 {this.state.chassis && (
                     <img src={`../cars/${this.state.chassis}/${this.state.chassis}bodydetails.png`} />
@@ -123,6 +123,12 @@ class Car extends Component<CarProps, CarState> {
                 )}
                 {this.state.chassis && this.state.skirt && (
                     <img src={`../cars/${this.state.chassis}/skirt/${this.state.skirt}details.png`} />
+                )}
+                {this.state.chassis && this.state.wing && (
+                    <img src={`../cars/${this.state.chassis}/wing/${this.state.wing}.svg`} />
+                )}
+                {this.state.chassis && this.state.wing && (
+                    <img src={`../cars/${this.state.chassis}/wing/${this.state.wing}details.png`} />
                 )}
             </div>
         );

@@ -94,36 +94,36 @@ class Car extends Component<CarProps, CarState> {
 
         return (
             <div className="car">
-                <img
-                src={`../cars/${this.state.chassis}/${this.state.chassis}chassis.png`}
-                />
-                <img
-                src={`../cars/${this.state.chassis}/${this.state.chassis}body.png`} //CAMBIAR A SVG!!!!!!!
-                />
-                <img
-                src={`../cars/${this.state.chassis}/${this.state.chassis}bodydetails.png`}
-                />
-                <img
-                src={`../cars/${this.state.chassis}/rims/${this.state.rims}.png`}
-                />
-                <img
-                src={`../cars/${this.state.chassis}/front/${this.state.front}.svg`}
-                />
-                <img
-                src={`../cars/${this.state.chassis}/front/${this.state.front}details.png`}
-                />
-                <img
-                src={`../cars/${this.state.chassis}/rear/${this.state.rear}.svg`}
-                />
-                <img
-                src={`../cars/${this.state.chassis}/rear/${this.state.rear}details.png`}
-                />
-                <img
-                src={`../cars/${this.state.chassis}/skirt/${this.state.skirt}.svg`}
-                />
-                <img
-                src={`../cars/${this.state.chassis}/skirt/${this.state.skirt}details.png`}
-                />
+                {this.state.chassis && (
+                    <img src={`../cars/${this.state.chassis}/${this.state.chassis}chassis.png`} />
+                )}
+                {this.state.chassis && (
+                    <img src={`../cars/${this.state.chassis}/${this.state.chassis}body.png`} />
+                )}
+                {this.state.chassis && (
+                    <img src={`../cars/${this.state.chassis}/${this.state.chassis}bodydetails.png`} />
+                )}
+                {this.state.chassis && (
+                    <img src={`../cars/${this.state.chassis}/rims/${this.state.rims}.png`} />
+                )}
+                {this.state.chassis && this.state.front && (
+                    <img src={`../cars/${this.state.chassis}/front/${this.state.front}.svg`} />
+                )}
+                {this.state.chassis && this.state.front && (
+                    <img src={`../cars/${this.state.chassis}/front/${this.state.front}details.png`} />
+                )}
+                {this.state.chassis && this.state.rear && (
+                    <img src={`../cars/${this.state.chassis}/rear/${this.state.rear}.svg`} />
+                )}
+                {this.state.chassis && this.state.rear && (
+                    <img src={`../cars/${this.state.chassis}/rear/${this.state.rear}details.png`} />
+                )}
+                {this.state.chassis && this.state.skirt && (
+                    <img src={`../cars/${this.state.chassis}/skirt/${this.state.skirt}.svg`} />
+                )}
+                {this.state.chassis && this.state.skirt && (
+                    <img src={`../cars/${this.state.chassis}/skirt/${this.state.skirt}details.png`} />
+                )}
             </div>
         );
     }

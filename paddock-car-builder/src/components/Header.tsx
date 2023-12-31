@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom"
+
 function Header(){
     return <div className="header">
-        <a href="/home">
+        <Link to="/home">
             <img
             src="../PCBLogo.png"
             alt="Paddock Car Builder logo"/>
-        </a>
+        </Link>
     </div>
 }
 

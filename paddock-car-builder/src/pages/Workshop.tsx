@@ -4,6 +4,7 @@ import PartButton from '../components/PartButton'
 import SelectPartButton from '../components/SelectPartButton'
 import { useState, useEffect, useRef } from 'react'
 import { getCarData, setCarData } from '../components/carDataTransport'
+import { useAppState } from '../components/carCreationState'
 
 interface CarData {
     chassis: string;
@@ -42,11 +43,14 @@ const updateCarParts = (part: string, partNumber: string) => {
     // Lógica para actualizar las partes del coche y generar los botones
     let newFront = newCarData.front;
     let newRear = newCarData.rear;
+    let newSkirt = newCarData.skirt;
 
     if (part === 'front') {
         newFront = parseInt(partNumber);
     } else if (part === 'rear') {
         newRear = parseInt(partNumber);
+    } else if (part === 'skirt') {
+        newSkirt = parseInt(partNumber);
     }
 
     console.log("Numero seleccionado: " + selectedNumber.number); 
@@ -55,6 +59,7 @@ const updateCarParts = (part: string, partNumber: string) => {
         ...prevData,
         front: newFront,
         rear: newRear,
+        skirt: newSkirt,
 
 
     }));
@@ -108,13 +113,19 @@ const generatePartOptions = (partName: string, partNumber: string, isActive: str
 
 };
 
+const { isActive } = useAppState();
+
 return <>
     <CustomHeader/>
     <div className='container-workshop'>
         <div className='container-workshop-left'>
-            <PartButton name='front' isActive={activePart === "front"} onClick={() => handlePartClick('front')}/>
-            <PartButton name='rear' isActive={activePart === "rear"} onClick={() => handlePartClick('rear')}/>
-            <PartButton name='rims' isActive={activePart === "rims"} onClick={() => handlePartClick('rims')}/>
+            {isActive ? <>
+                <PartButton name='front' isActive={activePart === "front"} onClick={() => handlePartClick('front')}/>
+                <PartButton name='rear' isActive={activePart === "rear"} onClick={() => handlePartClick('rear')}/>
+                <PartButton name='skirt' isActive={activePart === "skirt"} onClick={() => handlePartClick('skirt')}/>
+                <PartButton name='rims' isActive={activePart === "rims"} onClick={() => handlePartClick('rims')}/>
+            </> : 
+            <></>}
         </div>
         <div className='container-workshop-middle'>
             <div className='container-workshop-wall'>
@@ -124,7 +135,7 @@ return <>
                 alt='Paddock poster'
                 />
                 <div className='container-workshop-car'>
-                    <Car {...newCarData}/>
+                {isActive ? <Car {...newCarData}/> : <div className='car'><img src='../EmptyCar.png' /></div>}
                 </div>
             </div>
         </div>

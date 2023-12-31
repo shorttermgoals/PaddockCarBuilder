@@ -3,6 +3,8 @@ import HomeButton from '../components/HomeButtons'
 
 
 function Home(){
+
+
 return <>
     <CustomHeader/>
     <div className='home-menu'>
@@ -10,7 +12,7 @@ return <>
             <HomeButton type='1' source='dress-up' hiper='workshop'/>
             <HomeButton type='1' source='garage' hiper='garage'/>
         </div>
-        <HomeButton type='2' source='newcar'hiper='garage'/>
+        <HomeButton type='2' source='newcar' hiper='home'/>
     </div>
 </>
 }

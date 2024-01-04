@@ -3,7 +3,7 @@ function Return(){
             <div className="button-tiny">
                 <div className="button-tiny-fill">
                     <img
-                        src="../Buttons/HomeLogo.png"
+                        src="../Buttons/homelogo.png"
                         alt="Home Button Mini"
                     />
                 </div>

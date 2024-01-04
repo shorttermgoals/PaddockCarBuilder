@@ -4,7 +4,6 @@ import PartButton from '../components/PartButton'
 import SelectPartButton from '../components/SelectPartButton'
 import { useState, useEffect, useRef } from 'react'
 import { getCarData, setCarData } from '../components/carDataTransport'
-import { useAppState } from '../components/carCreationState'
 
 interface CarData {
     chassis: string;
@@ -15,7 +14,7 @@ interface CarData {
     skirt: number;
     wing: number;
     rims: number;
-    color: string;
+    mirrors: number;
   }
 
 function Workshop(){
@@ -28,14 +27,14 @@ const [activeSelectedPart, setActiveSelectedPart] = useState<string | null>(null
 const [generatedButtons, setGeneratedButtons] = useState<JSX.Element[]>([]);
 const [newCarData, setNewCarData] = useState<CarData>(() => getCarData() || {
     chassis: '993',
-    body: 0,
-    details: 0,
+    body: 1,
+    details: 1,
     front: 1,
     rear: 1,
     skirt: 1,
     wing: 0,
     rims: 1,
-    color: '#bfbfbf',
+    mirrors: 1,
   });
 
 
@@ -46,6 +45,7 @@ const updateCarParts = (part: string, partNumber: string) => {
     let newSkirt = newCarData.skirt;
     let newWing = newCarData.wing;
     let newRims = newCarData.rims;
+    let newMirrors = newCarData.mirrors
     
 
     if (part === 'front') {
@@ -58,7 +58,9 @@ const updateCarParts = (part: string, partNumber: string) => {
         newWing = parseInt(partNumber);
     } else if (part === 'rims') {
         newRims = parseInt(partNumber);
-    } 
+    } else if (part === 'mirrors') {
+        newMirrors = parseInt(partNumber);
+    }
 
     console.log("Numero seleccionado: " + selectedNumber.number); 
 
@@ -69,8 +71,7 @@ const updateCarParts = (part: string, partNumber: string) => {
         skirt: newSkirt,
         wing: newWing,
         rims: newRims,
-
-
+        mirrors: newMirrors,
     }));
 };
 
@@ -122,20 +123,17 @@ const generatePartOptions = (partName: string, partNumber: string, isActive: str
 
 };
 
-const { isActive } = useAppState();
 
 return <>
     <CustomHeader/>
     <div className='container-workshop'>
         <div className='container-workshop-left'>
-            {isActive ? <>
                 <PartButton name='front' isActive={activePart === "front"} onClick={() => handlePartClick('front')}/>
                 <PartButton name='rear' isActive={activePart === "rear"} onClick={() => handlePartClick('rear')}/>
                 <PartButton name='skirt' isActive={activePart === "skirt"} onClick={() => handlePartClick('skirt')}/>
                 <PartButton name='wing' isActive={activePart === "wing"} onClick={() => handlePartClick('wing')}/>                
+                <PartButton name='mirrors' isActive={activePart === "mirrors"} onClick={() => handlePartClick('mirrors')}/>                
                 <PartButton name='rims' isActive={activePart === "rims"} onClick={() => handlePartClick('rims')}/>
-            </> : 
-            <></>}
         </div>
         <div className='container-workshop-middle'>
             <div className='container-workshop-wall'>
@@ -145,7 +143,7 @@ return <>
                 alt='Paddock poster'
                 />
                 <div className='container-workshop-car'>
-                {isActive ? <Car {...newCarData}/> : <div className='car'><img src='../EmptyCar.png' /></div>}
+                <Car {...newCarData}/>
                 </div>
             </div>
         </div>

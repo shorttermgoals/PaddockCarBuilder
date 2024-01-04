@@ -7,7 +7,7 @@ interface CarData {
     skirt: number;
     wing: number;
     rims: number;
-    color: string;
+    mirrors: number;
   }
   
   export const getCarData = (): CarData | null => {

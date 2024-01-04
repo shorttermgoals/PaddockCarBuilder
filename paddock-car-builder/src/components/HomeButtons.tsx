@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { carState, useAppState } from "./carCreationState";
 import { getCarData, setCarData } from '../components/carDataTransport'
 import { Link } from "react-router-dom";
 
@@ -18,21 +17,21 @@ interface CarData {
     skirt: number;
     wing: number;
     rims: number;
-    color: string;
+    mirrors: number;
   }
 
 function HomeButtons({type, source, hiper}: Props){
 
     const [newCarData, setNewCarData] = useState<CarData>(() => getCarData() || {
         chassis: '993',
-        body: 0,
+        body: 1,
         details: 0,
         front: 1,
         rear: 1,
         skirt: 1,
         wing: 1,
         rims: 1,
-        color: '#bfbfbf',
+        mirrors: 1,
       });
 
     const updateCarParts = () => {
@@ -43,17 +42,15 @@ function HomeButtons({type, source, hiper}: Props){
             skirt: 1,
             wing: 0,
             rims: 2,
+            mirrors: 1,
     
     
         }));
     };
 
-    const {isActive, setGlobalState} = useAppState();
 
     const handleClick = () => {
-        if(source === 'newcar'){
-            setGlobalState(true);
-            console.log(carState.isActive);
+        if(source === 'resetcar'){
             updateCarParts();
             setNewCarData((prevData) => {
                 setCarData(prevData);

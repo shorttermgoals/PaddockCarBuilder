@@ -19,7 +19,7 @@ body{
 }
 
 .button{
-    width: 140px;
+    width: 110px;
     transition: all;
   };
 
@@ -35,6 +35,7 @@ body{
 
   img{
     width: 600px;
+    
   }
 }
 
@@ -54,7 +55,6 @@ body{
 
 .home-button{
   background-color: #ffffff;
-  height: 200px;
   border-radius: 25px;
   @include grid-center;
 
@@ -64,16 +64,16 @@ body{
 
   &-fill{
     background-color: #00145c;
-    height: 170px;
     border-radius: 16px;
-    @include grid-center;
-
-    &-content{
-      width: 140px;
+    display: grid;
+    justify-content: center;
+    &-content{      
+      width: 160px;
     }
 
     &.narrow-button-fill{
-      width: 290px;
+          height: 170px;
+          width: 290px;
     }
 
     &.wide-button-fill{
@@ -82,10 +82,12 @@ body{
   }
 
   &.narrow-button{
+      height: 200px;
       width: 320px;
   }
 
   &.wide-button{
+    height: 200px;
     width: 660px;
   }
 }
@@ -171,8 +173,9 @@ body{
 
       &-car{
         position: relative;
-        top: -270px;
+        top: -330px;
         z-index: 2;
+        color: transparent;
       }
 
       &-furniture{
@@ -218,11 +221,10 @@ body{
       width: 300px;
     }
 
-   
-
     &-car{
       position: absolute;
-      top: 250px;
+      top: 200px;
+      color: transparent;
     }
   }
 
@@ -254,7 +256,632 @@ body{
   justify-items: center;
 
   img{
-    width: 400px;
+    width: 500px;
     position: absolute;
   }
+}
+
+@media only screen and (max-width: 1250px) {
+
+  @mixin workshop-sides{
+    width: 200px;
+  }
+
+  .container{
+
+    &-workshop{
+      
+      &-left{
+        @include workshop-sides;
+      }
+
+  
+      &-right{
+        @include workshop-sides;
+      }
+
+      &-wall{
+        width: 700px;
+        height: 500px;
+      }
+  
+    }
+
+  }
+
+}
+
+@media only screen and (max-width: 1150px) {
+  
+  @mixin workshop-sides{
+    width: 190px;
+  }
+  
+  .container{
+
+    &-garage{
+  
+      &-wall{
+        width: 980px;
+        height: 500px;
+       
+      }
+  
+  
+      &-floor{
+   
+        &-furniture{
+        width: 460px;
+        position: relative;
+        top: -90px;
+        z-index: 2;
+      }
+      }
+  
+    }
+  
+    &-workshop{
+  
+      &-left{
+        @include workshop-sides;
+      }
+
+      &-right{
+        @include workshop-sides;
+      }
+  
+      &-wall{
+        width: 590px;
+        height: 500px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  
+  .car{
+    img{
+      width: 400px;
+    }
+  }
+
+  .button{
+    width: 90px;
+  };
+
+  @mixin workshop-sides{
+    width: 140px;
+    margin: 50px 0px;
+  }
+
+  .container{
+
+    &-garage{
+  
+      
+      &-wall{
+        width: 700px;
+        height: 500px;
+        grid-template-columns: 1.05fr 0.95fr;
+      }
+
+      
+  
+      &-floor{
+   
+        grid-template-columns: 1.2fr 0.8fr;
+
+
+        &-car{
+          top: -269px;
+        }
+
+        &-furniture{
+        width: 310px;
+        top: -60px;
+      }
+      }
+    }
+
+    &-workshop{
+  
+      &-left{
+        @include workshop-sides;
+      }
+
+      &-right{
+        @include workshop-sides;
+      }
+  
+      &-wall{
+        width: 460px;
+        height: 500px;
+      }
+
+      &-car{
+        top: 240px;
+      }
+    }
+  
+    &-404{
+  
+      @include containers;
+  
+      &-header{
+        font-size: 105px;
+      }
+  
+      &-comment{
+        font-size: 25px;
+      }
+  
+      &-img{
+        width: 600px;
+      }
+    }
+  
+  }
+
+}
+
+
+@media only screen and (max-width: 730px) {
+  
+  .car{
+    img{
+      width: 350px;
+    }
+  }
+
+  .button{
+    width: 70px;
+  }
+
+  .container{
+
+    &-garage{
+  
+      
+      &-wall{
+        width: 530px;
+        height: 700px;
+        grid-template-columns: 0fr 1fr 0fr;
+      }
+  
+      &-floor{
+   
+        grid-template-columns: auto;
+
+
+        &-car{
+          top: -220px;
+        }
+
+        &-furniture{
+        display: none
+        }
+      }
+    }
+
+    @mixin workshop-sides{
+      width: 100px;
+      margin: 100px 0px;
+      grid-row-gap: 18px; 
+    }
+  
+    &-workshop{
+  
+      &-left{
+        @include workshop-sides;
+      }
+
+      &-right{
+        @include workshop-sides;
+      }
+
+      &-poster{
+        margin-top: 60px;
+        width: 250px;
+      }
+  
+      &-wall{
+        width: 360px;
+        height: 500px;
+      }
+
+      &-car{
+        top: 270px;
+      }
+    }
+
+    &-404{
+  
+      @include containers;
+  
+      &-header{
+        font-size: 80px;
+      }
+  
+      &-comment{
+        font-size: 20px;
+      }
+  
+      &-img{
+        margin-top: 40px;
+        width: 540px;
+      }
+    }
+  
+  }
+
+  
+  .home-header{  
+    img{
+      width: 500px;
+    }
+  }
+
+  .home-button{
+    
+    &-fill{
+      align-content: center;
+      
+      &-content{      
+        width: 190px;
+      }
+  
+      &.narrow-button-fill{
+        height: 210px;
+        width: 210px;
+      }
+  
+      &.wide-button-fill{
+        height: 470px;
+        width: 470px;
+      }
+    }
+  
+    &.narrow-button{
+      height: 240px;
+      width: 240px;
+    }
+  
+    &.wide-button{
+      height: 500px;
+      width: 500px;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .car{
+    img{
+      width: 300px;
+    }
+  }
+
+  .button{
+    width: 65px;
+  }
+  
+  .button-tiny{
+    margin-top: 45px;
+      height: 50px;
+      width: 70px;
+  
+  
+      &-fill{
+        height: 36px;
+        width: 55px;
+  
+        img{
+          width: 28px;
+        }
+      }
+  }
+  
+  .container{
+
+    &-garage{
+  
+      &-wall{
+        width: 400px;
+        height: 680px;
+      }
+
+      &-floor{
+        &-car{
+          top: -190px
+        }
+      }
+    }
+  
+    &-404{
+  
+      @include containers;
+  
+      &-header{
+        font-size: 60px;
+      }
+  
+      &-comment{
+        font-size: 16px;
+      }
+  
+      &-img{
+        width: 400px;
+      }
+    }
+
+    @mixin workshop-sides{
+      width: 80px;
+      margin: 120px 0px;
+      grid-row-gap: 15px;
+    }
+
+    &-workshop{
+  
+      &-left{
+        @include workshop-sides;
+      }
+
+      &-right{
+        @include workshop-sides;
+      }
+
+      &-poster{
+        margin-top: 60px;
+        width: 210px;
+      }
+  
+      &-wall{
+        width: 290px;
+        height: 500px;
+      }
+
+      &-car{
+        top: 310px;
+      }
+    }
+
+  }
+  
+  .home-header{  
+    img{
+      width: 400px;
+    }
+  }
+
+  .home-button{
+    
+    &-fill{      
+      &-content{      
+        width: 120px;
+      }
+  
+      &.narrow-button-fill{
+        height: 140px;
+        width: 140px;
+      }
+  
+      &.wide-button-fill{
+        height: 330px;
+        width: 330px;
+      }
+    }
+  
+    &.narrow-button{
+      height: 170px;
+      width: 170px;
+    }
+  
+    &.wide-button{
+      height: 360px;
+      width: 360px;
+    }
+  }
+  
+  .home-menu{
+    gap: 15px;
+  
+    &-row-1{
+      gap: 15px;
+    }
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  
+  .car{
+    img{
+      width: 270px;
+    }
+  }
+
+  .container{
+
+    &-garage{
+  
+      &-wall{
+        width: 370px;
+        height: 550px;
+      }
+
+      &-floor{
+        
+        &-car{
+          top: -160px;
+        }
+      }
+    }
+
+
+    &-workshop{
+  
+      &-poster{
+        margin-top: 60px;
+        width: 190px;
+      }
+  
+      &-wall{
+        width: 250px;
+        height: 450px;
+      }
+
+      &-car{
+        top: 290px;
+      }
+    }
+  
+    &-404{
+  
+      @include containers;
+  
+      &-header{
+        font-size: 50px;
+      }
+  
+      &-comment{
+        font-size: 13px;
+      }
+  
+      &-img{
+        width: 360px;
+      }
+    }
+  
+  }
+
+  .home-header{  
+    img{
+      width: 370px;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 400px) {
+  
+  .car{
+    img{
+      width: 220px;
+    }
+  }
+
+  .button{
+    width: 55px;
+  }
+
+  .container{
+
+    &-garage{
+  
+      &-wall{
+        width: 310px;
+        height: 550px;
+      }
+
+      &-floor{
+        &-car{
+          top: -145px;
+        }
+      }
+    }
+  
+    @mixin workshop-sides{
+      width: 60px;
+      margin: 110px 0px;
+      grid-row-gap: 15px;
+    }
+
+    &-workshop{
+
+      &-left{
+        @include workshop-sides;
+      }
+
+      &-right{
+        @include workshop-sides;
+      }
+  
+      &-poster{
+        margin-top: 60px;
+        width: 160px;
+      }
+  
+      &-wall{
+        width: 210px;
+        height: 430px;
+      }
+
+      &-car{
+        top: 280px;
+      }
+    }
+
+    &-404{
+  
+      @include containers;
+  
+      &-header{
+        font-size: 40px;
+      }
+  
+      &-comment{
+        font-size: 10px;
+      }
+  
+      &-img{
+        width: 310px;
+      }
+    }
+  
+  }
+  
+  .home-header{  
+    img{
+      width: 300px;
+    }
+  }
+
+  .home-button{
+    
+    &-fill{
+
+      &-content{      
+        width: 105px;
+      }
+  
+      &.narrow-button-fill{
+        height: 120px;
+        width: 120px;
+      }
+  
+      &.wide-button-fill{
+        height: 270px;
+        width: 270px;
+      }
+    }
+  
+    &.narrow-button{
+      height: 140px;
+      width: 140px;
+    }
+  
+    &.wide-button{
+      height: 290px;
+      width: 290px;
+    }
+  }
+
+  .home-menu{
+    padding-top: 130px;
+    gap: 12px;
+  
+    &-row-1{
+      gap: 12px;
+    }
+  }
+
 }

@@ -9,7 +9,7 @@ interface CarProps{
     skirt?: number;
     wing?: number;
     rims?: number;
-    color?: string;
+    mirrors?: number;
 }
 
 interface CarState {
@@ -21,7 +21,7 @@ interface CarState {
     skirt: number;
     wing: number;
     rims: number;
-    color: string;
+    mirrors: number;
 }
 
 class Car extends Component<CarProps, CarState> {
@@ -31,28 +31,28 @@ class Car extends Component<CarProps, CarState> {
         // Default rendering properties
         this.state = {
             chassis: props.chassis || '993',
-            body: props.body || 0 ,
-            details: props.details || 0,
+            body: props.body || 1 ,
+            details: props.details || 1,
             front: props.front || 1,
             rear: props.rear || 1,
             skirt: props.skirt || 1,
             wing: props.wing || 1,
-            rims: props.rims || 2,
-            color: props.color || '#bfbfbf',
+            rims: props.rims || 1,
+            mirrors: props.mirrors || 1,
         };
     }
 
     updateCarData = (newData: CarProps) => {
         this.setState({
             chassis: newData.chassis || '993',
-            body: newData.body || 0,
-            details: newData.details || 0,
+            body: newData.body || 1,
+            details: newData.details || 1,
             front: newData.front || 1,
             rear: newData.rear || 1,
             skirt: newData.skirt || 1,
             wing: newData.wing || 1,
             rims: newData.rims || 1,
-            color: newData.color || '#bfbfbf',
+            mirrors: newData.mirrors || 1,
         });
     };
 
@@ -77,7 +77,7 @@ class Car extends Component<CarProps, CarState> {
             nextProps.skirt !== prevState.skirt ||
             nextProps.wing !== prevState.wing ||
             nextProps.rims !== prevState.rims ||
-            nextProps.color !== prevState.color
+            nextProps.mirrors !== prevState.mirrors
             ) {
           // Devuelve el nuevo estado basado en las nuevas props
           return { ...nextProps };
@@ -123,6 +123,12 @@ class Car extends Component<CarProps, CarState> {
                 )}
                 {this.state.chassis && this.state.skirt && (
                     <img src={`../cars/${this.state.chassis}/skirt/${this.state.skirt}details.png`} />
+                )}
+                {this.state.chassis && this.state.mirrors && (
+                    <img src={`../cars/${this.state.chassis}/mirrors/${this.state.mirrors}.svg`} />
+                )}
+                {this.state.chassis && this.state.mirrors && (
+                    <img src={`../cars/${this.state.chassis}/mirrors/${this.state.mirrors}details.png`} />
                 )}
                 {this.state.chassis && this.state.wing && (
                     <img src={`../cars/${this.state.chassis}/wing/${this.state.wing}.svg`} />

@@ -1,6 +1,5 @@
 // import NavButton from "./components/NavButton";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { carState, useAppState } from "./components/carCreationState";
 import Home from './pages/Home'
 import Garage from './pages/Garage'
 import Workshop from './pages/Workshop'
@@ -8,9 +7,6 @@ import NoPage from "./pages/NoPage";
 import './styles/app.scss';
 
 function App(){
-
-  const { isActive, setGlobalState } = useAppState();
-  carState.setIsActive = setGlobalState;
 
   return (
     <div className="app">

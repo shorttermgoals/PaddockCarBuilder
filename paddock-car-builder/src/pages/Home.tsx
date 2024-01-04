@@ -12,7 +12,7 @@ return <>
             <HomeButton type='1' source='dress-up' hiper='workshop'/>
             <HomeButton type='1' source='garage' hiper='garage'/>
         </div>
-        <HomeButton type='2' source='newcar' hiper='home'/>
+        <HomeButton type='2' source='resetcar' hiper='home'/>
     </div>
 </>
 }

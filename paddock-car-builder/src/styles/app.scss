@@ -129,7 +129,7 @@ body{
 }
 
 @mixin containers{
-    margin-top: 40px;
+  margin-top: 40px;
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -144,6 +144,10 @@ body{
 }
 
 .container{
+
+  display: grid;
+  justify-items: center;
+  align-self: center;
 
   &-garage{
     @include containers;
@@ -246,6 +250,17 @@ body{
     }
   }
 
+  &-loading{
+    position: absolute;
+    z-index: 99999;
+    width: 95%;
+    height: 95%;
+    background-color: #dddddd;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+  }
 
 
 }

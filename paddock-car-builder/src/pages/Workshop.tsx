@@ -1,4 +1,5 @@
 import CustomHeader from '../components/Header'
+import LoadingScreen from '../components/LoadingScreen'
 import Car from '../components/Car'
 import PartButton from '../components/PartButton'
 import SelectPartButton from '../components/SelectPartButton'
@@ -20,6 +21,7 @@ interface CarData {
 function Workshop(){
 
 // Definición de los estados del componente usando el hook useState
+const [showLoading, setShowLoading] = useState(true);
 const [selectedPart, setSelectedPart] = useState({name:''});
 const [selectedNumber, setSelectedNumber] = useState({number:'1'});
 const [activePart, setActivePart] = useState<string | null>(null);
@@ -82,6 +84,12 @@ useEffect(() => {
     
     generatePartOptions(selectedPart.name, selectedNumber.number,activeSelectedPart);
 
+    const timeoutId = setTimeout(() => {
+        setShowLoading(false);
+    }, 500)
+
+    return () => clearTimeout(timeoutId);
+
 }, [selectedNumber, selectedPart, activeSelectedPart]);
 
 const handlePartClick = (name:string) => {
@@ -125,6 +133,7 @@ const generatePartOptions = (partName: string, partNumber: string, isActive: str
 
 
 return <>
+    {showLoading && <LoadingScreen/>}
     <CustomHeader/>
     <div className='container-workshop'>
         <div className='container-workshop-left'>

@@ -15,7 +15,7 @@ useEffect(() => {
     // Hide LoadingScreen after specified time
     const timeoutId = setTimeout(() => {
         setShowLoading(false);
-    }, 300)
+    }, 0)
 
     // Empty timeout after hiding component
     return () => clearTimeout(timeoutId);
@@ -23,7 +23,7 @@ useEffect(() => {
 
 
 return <div>
-    {showLoading && <LoadingScreen/>}
+    
     <CustomHeader/>
     <div className='container-garage'>
         <div className='container-garage-wall'>

@@ -109,7 +109,7 @@ const generatePartOptions = (partName: string, partNumber: string, isActive: str
 
     if (activePart === partName){
         let buttons = [];
-        for (let i = 0; i <=3; i++) {
+        for (let i = 0; i <=5; i++) {
 
             const currentNumber = i.toString();
 
@@ -133,7 +133,6 @@ const generatePartOptions = (partName: string, partNumber: string, isActive: str
 
 
 return <>
-    {showLoading && <LoadingScreen/>}
     <CustomHeader/>
     <div className='container-workshop'>
         <div className='container-workshop-left'>

@@ -82,8 +82,6 @@ useEffect(() => {
 
     setCarData(newCarData);
     
-    generatePartOptions(selectedPart.name, selectedNumber.number,activeSelectedPart);
-
     const timeoutId = setTimeout(() => {
         setShowLoading(false);
     }, 500)
@@ -93,9 +91,9 @@ useEffect(() => {
 }, [selectedNumber, selectedPart, activeSelectedPart]);
 
 const handlePartClick = (name:string) => {
+    setActiveSelectedPart(null);
     setSelectedPart({name});
     setActivePart(name);
-    setGeneratedButtons([]);
 }
 const handlePartNumberClick = (number:string, partName: string) => {
     if (activePart === partName) {
@@ -104,32 +102,6 @@ const handlePartNumberClick = (number:string, partName: string) => {
         updateCarParts(partName,number);
     }
 }
-
-const generatePartOptions = (partName: string, partNumber: string, isActive: string | null) => {
-
-    if (activePart === partName){
-        let buttons = [];
-        for (let i = 0; i <=6; i++) {
-
-            const currentNumber = i.toString();
-
-            const isActive = activeSelectedPart === currentNumber;
-
-            buttons.push(
-            <SelectPartButton 
-                key={currentNumber}
-                name={partName} 
-                number={currentNumber} 
-                onClick={() => handlePartNumberClick(currentNumber,partName)}
-                isActive={isActive}
-                />
-            );
-        };
-        setGeneratedButtons(buttons);
-    }
-           
-
-};
 
 
 return <>
@@ -156,7 +128,20 @@ return <>
             </div>
         </div>
         <div className='container-workshop-right'>
-            {generatedButtons}
+            {activePart && [...Array(7).keys()].map(i => (
+                <SelectPartButton
+                key={i.toString()}
+                name={activePart}
+                number={i.toString()}
+                onClick={() => handlePartNumberClick(i.toString(), activePart)}
+                isActive={activeSelectedPart === i.toString()}
+                />
+            ))}
+            {!activePart && (
+            <>
+            
+            </>
+            )}
         </div>
         
         

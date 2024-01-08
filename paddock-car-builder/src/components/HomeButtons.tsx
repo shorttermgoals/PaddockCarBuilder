@@ -6,6 +6,7 @@ interface Props{
     type: string;
     source: string;
     hiper: string ;
+    onResetButtonClick : () => void;
 }
 
 interface CarData {
@@ -20,7 +21,7 @@ interface CarData {
     mirrors: number;
   }
 
-function HomeButtons({type, source, hiper}: Props){
+function HomeButtons({type, source, hiper, onResetButtonClick}: Props){
 
     const [newCarData, setNewCarData] = useState<CarData>(() => getCarData() || {
         chassis: '993',
@@ -51,6 +52,7 @@ function HomeButtons({type, source, hiper}: Props){
 
     const handleClick = () => {
         if(source === 'resetcar'){
+            onResetButtonClick();
             updateCarParts();
             setNewCarData((prevData) => {
                 setCarData(prevData);

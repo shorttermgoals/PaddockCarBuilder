@@ -90,7 +90,7 @@ class Car extends Component<CarProps, CarState> {
 
     render() {
 
-        console.log("Car props" , this.props);
+        // console.log("Car props" , this.props);
 
         return (
             <div className="car">

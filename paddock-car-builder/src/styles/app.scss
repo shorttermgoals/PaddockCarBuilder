@@ -276,6 +276,27 @@ body{
   }
 }
 
+.reset-alert{
+
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+  &-fill{
+    background-color: #ae0006;
+    border-radius: 16px;
+    width: 630px;
+    height: 60px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    a{
+      color: #ffffff;
+    }
+  }
+}
+
 @media only screen and (max-width: 1250px) {
 
   @mixin workshop-sides{
@@ -567,6 +588,13 @@ body{
       width: 500px;
     }
   }
+
+  .reset-alert{
+    &-fill{
+      width: 470px;
+      height: 60px;
+    }
+  }
 }
 
 @media only screen and (max-width: 550px) {
@@ -702,6 +730,13 @@ body{
   
     &-row-1{
       gap: 15px;
+    }
+  }
+
+  .reset-alert{
+    &-fill{
+      width: 330px;
+      height: 60px;
     }
   }
 }
@@ -896,6 +931,13 @@ body{
   
     &-row-1{
       gap: 12px;
+    }
+  }
+
+  .reset-alert{
+    &-fill{
+      width: 270px;
+      height: 60px;
     }
   }
 

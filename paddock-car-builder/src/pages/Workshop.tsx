@@ -64,7 +64,7 @@ const updateCarParts = (part: string, partNumber: string) => {
         newMirrors = parseInt(partNumber);
     }
 
-    console.log("Numero seleccionado: " + selectedNumber.number); 
+    // console.log("Numero seleccionado: " + selectedNumber.number); 
 
     setNewCarData((prevData) => ({
         ...prevData,
@@ -109,7 +109,7 @@ const generatePartOptions = (partName: string, partNumber: string, isActive: str
 
     if (activePart === partName){
         let buttons = [];
-        for (let i = 0; i <=5; i++) {
+        for (let i = 0; i <=6; i++) {
 
             const currentNumber = i.toString();
 

@@ -36,8 +36,8 @@ class Car extends Component<CarProps, CarState> {
             front: props.front || 1,
             rear: props.rear || 1,
             skirt: props.skirt || 1,
-            wing: props.wing || 1,
-            rims: props.rims || 1,
+            wing: props.wing || 0,
+            rims: props.rims || 0,
             mirrors: props.mirrors || 1,
         };
     }
@@ -50,8 +50,8 @@ class Car extends Component<CarProps, CarState> {
             front: newData.front || 1,
             rear: newData.rear || 1,
             skirt: newData.skirt || 1,
-            wing: newData.wing || 1,
-            rims: newData.rims || 1,
+            wing: newData.wing || 0,
+            rims: newData.rims || 0,
             mirrors: newData.mirrors || 1,
         });
     };

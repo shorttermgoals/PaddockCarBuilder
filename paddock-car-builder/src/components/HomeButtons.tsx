@@ -30,8 +30,8 @@ function HomeButtons({type, source, hiper, onResetButtonClick}: Props){
         front: 1,
         rear: 1,
         skirt: 1,
-        wing: 1,
-        rims: 1,
+        wing: 0,
+        rims: 0,
         mirrors: 1,
       });
 
@@ -42,7 +42,7 @@ function HomeButtons({type, source, hiper, onResetButtonClick}: Props){
             rear: 1,
             skirt: 1,
             wing: 0,
-            rims: 2,
+            rims: 0,
             mirrors: 1,
     
     

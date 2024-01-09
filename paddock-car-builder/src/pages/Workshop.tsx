@@ -35,7 +35,7 @@ const [newCarData, setNewCarData] = useState<CarData>(() => getCarData() || {
     rear: 1,
     skirt: 1,
     wing: 0,
-    rims: 1,
+    rims: 0,
     mirrors: 1,
   });
 
@@ -91,7 +91,6 @@ useEffect(() => {
 }, [selectedNumber, selectedPart, activeSelectedPart]);
 
 const handlePartClick = (name:string) => {
-    setActiveSelectedPart(null);
     setSelectedPart({name});
     setActivePart(name);
 }
@@ -100,6 +99,7 @@ const handlePartNumberClick = (number:string, partName: string) => {
         setSelectedNumber({number});
         setActiveSelectedPart(number);
         updateCarParts(partName,number);
+        console.log(partName,number);
     }
 }
 

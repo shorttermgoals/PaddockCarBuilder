@@ -91,6 +91,8 @@ useEffect(() => {
 }, [selectedNumber, selectedPart, activeSelectedPart]);
 
 const handlePartClick = (name:string) => {
+
+    setActiveSelectedPart('');
     setSelectedPart({name});
     setActivePart(name);
 }
@@ -99,7 +101,6 @@ const handlePartNumberClick = (number:string, partName: string) => {
         setSelectedNumber({number});
         setActiveSelectedPart(number);
         updateCarParts(partName,number);
-        console.log(partName,number);
     }
 }
 

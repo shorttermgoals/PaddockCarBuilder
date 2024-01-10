@@ -199,22 +199,18 @@ body{
   &-workshop{
     @include containers;
     grid-template-columns: auto auto auto;
-    position: relative;
 
     &-left{
       @include workshop-sides;
-      position: relative;
     }
 
     &-middle{
       display: grid;
       margin: 35px 0px;
-      position: relative;
     }
 
     &-right{
       @include workshop-sides;
-      position: relative;
     }
 
     &-wall{
@@ -224,17 +220,16 @@ body{
       background-color: #bebebe;
       display: grid;
       justify-items: center;
-      position: relative;
     }
 
     &-poster{
       margin-top: 30px;
       width: 300px;
-      position: relative;
     }
 
     &-car{
-      position: absolute;
+      width: 800px;
+      height: 200px;
       top: 200px;
       color: transparent;
     }
@@ -328,6 +323,10 @@ body{
         width: 700px;
         height: 500px;
       }
+
+      &-car{
+        width: 700px;
+      }
   
     }
 
@@ -377,6 +376,10 @@ body{
       &-wall{
         width: 590px;
         height: 500px;
+      }
+
+      &-car{
+        width: 590px;
       }
     }
   }
@@ -451,8 +454,9 @@ body{
       }
 
       &-car{
-        top: 240px;
+        width: 460px;
       }
+      
     }
   
     &-404{
@@ -547,7 +551,8 @@ body{
       }
 
       &-car{
-        top: 270px;
+        width: 360px;
+        height: 150px;
       }
     }
 
@@ -704,7 +709,8 @@ body{
       }
 
       &-car{
-        top: 180px;
+        width: 290px;
+        height: 130px;
       }
     }
 
@@ -798,7 +804,7 @@ body{
       }
 
       &-car{
-        top: 200px;
+        width: 250px;
       }
     }
   
@@ -883,7 +889,8 @@ body{
       }
 
       &-car{
-        top: 160px;
+        width: 210px;
+        height: 60px;
       }
     }
 
@@ -983,6 +990,10 @@ body{
       &-right{
         @include workshop-sides;
       }
+
+      &-car{
+        height: 90px;
+      }
   
     }
   }
@@ -1037,7 +1048,7 @@ body{
       }
 
       &-car{
-        top: 130px;
+        width: 210px;
       }
     }
   }

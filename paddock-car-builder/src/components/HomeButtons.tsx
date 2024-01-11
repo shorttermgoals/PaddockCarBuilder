@@ -36,7 +36,6 @@ function HomeButtons({type, source, hiper}: Props){
     );
 
     const [buttonStyles, setButtonStyles] = useState({
-        imgSource : `../${source}.png`,
         rotate : 0,
     });
 
@@ -70,7 +69,6 @@ function HomeButtons({type, source, hiper}: Props){
           setTimeout(() => {
             clearInterval(rotationInterval);
             setButtonStyles({
-              imgSource: `../${source}.png`,
               rotate: 0,
             });
             setRotateStarted(false); // Reset the rotateStarted flag
@@ -88,7 +86,6 @@ function HomeButtons({type, source, hiper}: Props){
             });
 
             setButtonStyles({
-                imgSource : `../reseting.png`,
                 rotate : 0,
             });
 
@@ -101,6 +98,8 @@ function HomeButtons({type, source, hiper}: Props){
     },[setCarData]);
 
     const hprv = `/${hiper}`;
+    const imgSource = `../${source}.png`
+    const optionalText = `../${source}text.png`
     const buttonClass = `home-button ${type === '1' ? 'narrow-button' : 'wide-button'}`;
     const buttonFillClass = `home-button-fill ${type === '1' ? 'narrow-button-fill' : 'wide-button-fill'}`;
 
@@ -110,8 +109,9 @@ function HomeButtons({type, source, hiper}: Props){
                 <img
                     className="home-button-fill-content"
                     style={{transform: `rotate(${buttonStyles.rotate}deg)`}}
-                    src={buttonStyles.imgSource}
+                    src={imgSource}
                 />
+                
             </div>
         </div>
     </Link>

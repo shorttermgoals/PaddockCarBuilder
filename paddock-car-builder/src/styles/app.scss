@@ -78,18 +78,15 @@ body{
 
     &.wide-button-fill{
       background-color: #00145c;
+      height: 160px;
       width: 630px;
     }
 
     &.wide-button-fill-loading{
-      background-color: #cf0000;
+      background-color: #00145c;
       align-content: center;
       height: 160px;
       width: 630px;
-
-      img{ 
-        width: 100px;
-      }
     }
 
 
@@ -623,10 +620,6 @@ body{
       &.wide-button-fill-loading{
         height: 470px;
         width: 470px;
-  
-        img{ 
-          width: 120px;
-        }
       }
     }
   
@@ -770,10 +763,6 @@ body{
       &.wide-button-fill-loading{
         height: 330px;
         width: 330px;
-  
-        img{ 
-          width: 78px;
-        }
       }
     }
   
@@ -978,10 +967,6 @@ body{
       &.wide-button-fill-loading{
         height: 270px;
         width: 270px;
-  
-        img{ 
-          width: 68px;
-        }
       }
     }
   

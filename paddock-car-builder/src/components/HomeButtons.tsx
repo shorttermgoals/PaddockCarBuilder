@@ -6,6 +6,7 @@ interface Props{
     type: string;
     source: string;
     hiper: string ;
+    optText: string | null;
 }
 
 interface CarData {
@@ -20,7 +21,9 @@ interface CarData {
     mirrors: number;
   }
 
-function HomeButtons({type, source, hiper}: Props){
+function HomeButtons({type, source, hiper,optText}: Props){
+
+    const [srcExists, setSrcExists] = useState<boolean | null>(null);
 
     const [newCarData, setNewCarData] = useState<CarData>(() => getCarData() || {
         chassis: '993',
@@ -93,15 +96,35 @@ function HomeButtons({type, source, hiper}: Props){
         }
     }
 
+    const srcExistsAsync = (src: string): Promise<boolean> => {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => resolve(true);
+            img.onerror = () => resolve(false);
+        });
+    };
+
     useEffect(() =>{
         setCarData(newCarData);
-    },[setCarData]);
 
+        const checkSrcExists = async () => {
+            const src = `../${source}text.png`;
+            const exists = await srcExistsAsync(src);
+            setSrcExists(exists);
+        };
+
+        checkSrcExists();
+    },[setCarData,source]);
+
+    
     const hprv = `/${hiper}`;
     const imgSource = `../${source}.png`
     const optionalText = `../${source}text.png`
     const buttonClass = `home-button ${type === '1' ? 'narrow-button' : 'wide-button'}`;
     const buttonFillClass = `home-button-fill ${type === '1' ? 'narrow-button-fill' : 'wide-button-fill'}`;
+
+    
 
     return <Link to={hprv} style={{width: 'fit-content'}} onClick={handleClick}>
         <div className={buttonClass}>
@@ -111,7 +134,13 @@ function HomeButtons({type, source, hiper}: Props){
                     style={{transform: `rotate(${buttonStyles.rotate}deg)`}}
                     src={imgSource}
                 />
-                
+                {srcExists !== false && (
+                    <img
+                        className="home-button-fill-content"
+                        src={optionalText}
+                    />
+                )}
+                    
             </div>
         </div>
     </Link>

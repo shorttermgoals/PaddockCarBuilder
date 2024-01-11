@@ -66,6 +66,7 @@ body{
     border-radius: 16px;
     display: grid;
     justify-content: center;
+    justify-items: center;
     &-content{      
       width: 160px;
     }
@@ -78,7 +79,7 @@ body{
 
     &.wide-button-fill{
       background-color: #00145c;
-      height: 160px;
+      height: 180px;
       width: 630px;
     }
 
@@ -91,7 +92,7 @@ body{
   }
 
   &.wide-button{
-    height: 190px;
+    height: 210px;
     width: 660px;
   }
 }
@@ -592,6 +593,10 @@ body{
   }
 
   .home-button{
+
+    &:hover{
+      opacity: 1;
+    }
     
     &-fill{
       align-content: center;

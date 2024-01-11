@@ -40,6 +40,8 @@ function HomeButtons({type, source, hiper}: Props){
         rotate : 0,
     });
 
+    const [rotateStarted, setRotateStarted] = useState(false);
+
     const updateCarParts = () => {
         setNewCarData((prevData) => ({
             ...prevData,
@@ -53,6 +55,28 @@ function HomeButtons({type, source, hiper}: Props){
     
         }));
     };
+
+    useEffect(() => {
+        if (rotateStarted && source === 'resetcar') {
+          // Continuous rotation
+          let rotationInterval = setInterval(() => {
+            setButtonStyles((prevStyles) => ({
+              ...prevStyles,
+              rotate: prevStyles.rotate + 2,
+            }));
+          }, 2);
+    
+          // Reset rotation and imgSource after 720ms
+          setTimeout(() => {
+            clearInterval(rotationInterval);
+            setButtonStyles({
+              imgSource: `../${source}.png`,
+              rotate: 0,
+            });
+            setRotateStarted(false); // Reset the rotateStarted flag
+          }, 720);
+        }
+      }, [rotateStarted, source]);
 
 
     const handleClick = () => {
@@ -68,21 +92,7 @@ function HomeButtons({type, source, hiper}: Props){
                 rotate : 0,
             });
 
-            // Continuous rotation
-            let rotationInterval = setInterval(() => {
-                setButtonStyles((prevStyles) => ({
-                  ...prevStyles,
-                  rotate: prevStyles.rotate + 2,
-                }));
-              }, 2);
-
-            setTimeout(() => {
-                clearInterval(rotationInterval); // Stop the image from rotating
-                setButtonStyles({
-                    imgSource : `../${source}.png`,
-                    rotate : 0,
-                });
-            }, 720);
+            setRotateStarted(true);
         }
     }
 

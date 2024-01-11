@@ -6,7 +6,6 @@ interface Props{
     type: string;
     source: string;
     hiper: string ;
-    onResetButtonClick : () => void;
 }
 
 interface CarData {
@@ -21,7 +20,7 @@ interface CarData {
     mirrors: number;
   }
 
-function HomeButtons({type, source, hiper, onResetButtonClick}: Props){
+function HomeButtons({type, source, hiper}: Props){
 
     const [newCarData, setNewCarData] = useState<CarData>(() => getCarData() || {
         chassis: '993',
@@ -33,7 +32,14 @@ function HomeButtons({type, source, hiper, onResetButtonClick}: Props){
         wing: 0,
         rims: 0,
         mirrors: 1,
-      });
+      }
+    );
+
+    const [buttonStyles, setButtonStyles] = useState({
+        imgSource : `../${source}.png`,
+        buttonFillClass : `home-button-fill ${type === '1' ? 'narrow-button-fill' : 'wide-button-fill'}`,
+        rotate : 0,
+    });
 
     const updateCarParts = () => {
         setNewCarData((prevData) => ({
@@ -52,12 +58,34 @@ function HomeButtons({type, source, hiper, onResetButtonClick}: Props){
 
     const handleClick = () => {
         if(source === 'resetcar'){
-            onResetButtonClick();
             updateCarParts();
             setNewCarData((prevData) => {
                 setCarData(prevData);
                 return prevData;
             });
+
+            setButtonStyles({
+                imgSource : `../reseting.png`,
+                buttonFillClass : `home-button-fill ${type === '1' ? 'narrow-button-fill' : 'wide-button-fill-loading'}`,
+                rotate : 0,
+            });
+
+            // Continuous rotation
+            let rotationInterval = setInterval(() => {
+                setButtonStyles((prevStyles) => ({
+                  ...prevStyles,
+                  rotate: prevStyles.rotate + 2,
+                }));
+              }, 2);
+
+            setTimeout(() => {
+                clearInterval(rotationInterval); // Stop the image from rotating
+                setButtonStyles({
+                    imgSource : `../${source}.png`,
+                    buttonFillClass : `home-button-fill ${type === '1' ? 'narrow-button-fill' : 'wide-button-fill'}`,
+                    rotate : 0,
+                });
+            }, 720);
         }
     }
 
@@ -66,16 +94,16 @@ function HomeButtons({type, source, hiper, onResetButtonClick}: Props){
     },[setCarData]);
 
     const hprv = `/${hiper}`;
-    const imgSource = `../${source}.png`;
     const buttonClass = `home-button ${type === '1' ? 'narrow-button' : 'wide-button'}`;
-    const buttonFillClass = `home-button-fill ${type === '1' ? 'narrow-button-fill' : 'wide-button-fill'}`;
+
 
     return <Link to={hprv} style={{width: 'fit-content'}} onClick={handleClick}>
         <div className={buttonClass}>
-            <div className={buttonFillClass}>
+            <div className={buttonStyles.buttonFillClass}>
                 <img
                     className="home-button-fill-content"
-                    src={imgSource}
+                    style={{transform: `rotate(${buttonStyles.rotate}deg)`}}
+                    src={buttonStyles.imgSource}
                 />
             </div>
         </div>

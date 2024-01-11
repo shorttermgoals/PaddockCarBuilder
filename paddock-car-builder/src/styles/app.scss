@@ -63,7 +63,6 @@ body{
   }
 
   &-fill{
-    background-color: #00145c;
     border-radius: 16px;
     display: grid;
     justify-content: center;
@@ -72,13 +71,28 @@ body{
     }
 
     &.narrow-button-fill{
+          background-color: #00145c;
           height: 170px;
           width: 290px;
     }
 
     &.wide-button-fill{
+      background-color: #00145c;
       width: 630px;
     }
+
+    &.wide-button-fill-loading{
+      background-color: #cf0000;
+      align-content: center;
+      height: 160px;
+      width: 630px;
+
+      img{ 
+        width: 100px;
+      }
+    }
+
+
   }
 
   &.narrow-button{
@@ -87,7 +101,7 @@ body{
   }
 
   &.wide-button{
-    height: 200px;
+    height: 190px;
     width: 660px;
   }
 }
@@ -605,6 +619,15 @@ body{
         height: 470px;
         width: 470px;
       }
+
+      &.wide-button-fill-loading{
+        height: 470px;
+        width: 470px;
+  
+        img{ 
+          width: 120px;
+        }
+      }
     }
   
     &.narrow-button{
@@ -742,6 +765,15 @@ body{
       &.wide-button-fill{
         height: 330px;
         width: 330px;
+      }
+
+      &.wide-button-fill-loading{
+        height: 330px;
+        width: 330px;
+  
+        img{ 
+          width: 78px;
+        }
       }
     }
   
@@ -941,6 +973,15 @@ body{
       &.wide-button-fill{
         height: 270px;
         width: 270px;
+      }
+
+      &.wide-button-fill-loading{
+        height: 270px;
+        width: 270px;
+  
+        img{ 
+          width: 68px;
+        }
       }
     }
   

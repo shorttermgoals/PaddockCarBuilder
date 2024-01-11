@@ -21,7 +21,6 @@ interface CarData {
 function Workshop(){
 
 // Definición de los estados del componente usando el hook useState
-const [showLoading, setShowLoading] = useState(true);
 const [selectedPart, setSelectedPart] = useState({name:''});
 const [selectedNumber, setSelectedNumber] = useState({number:'1'});
 const [activePart, setActivePart] = useState<string | null>(null);
@@ -81,12 +80,6 @@ const updateCarParts = (part: string, partNumber: string) => {
 useEffect(() => {
 
     setCarData(newCarData);
-    
-    const timeoutId = setTimeout(() => {
-        setShowLoading(false);
-    }, 500)
-
-    return () => clearTimeout(timeoutId);
 
 }, [selectedNumber, selectedPart, activeSelectedPart]);
 

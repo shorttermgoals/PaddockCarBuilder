@@ -82,13 +82,6 @@ body{
       width: 630px;
     }
 
-    &.wide-button-fill-loading{
-      background-color: #00145c;
-      align-content: center;
-      height: 160px;
-      width: 630px;
-    }
-
 
   }
 
@@ -616,11 +609,6 @@ body{
         height: 470px;
         width: 470px;
       }
-
-      &.wide-button-fill-loading{
-        height: 470px;
-        width: 470px;
-      }
     }
   
     &.narrow-button{
@@ -756,11 +744,6 @@ body{
       }
   
       &.wide-button-fill{
-        height: 330px;
-        width: 330px;
-      }
-
-      &.wide-button-fill-loading{
         height: 330px;
         width: 330px;
       }
@@ -960,11 +943,6 @@ body{
       }
   
       &.wide-button-fill{
-        height: 270px;
-        width: 270px;
-      }
-
-      &.wide-button-fill-loading{
         height: 270px;
         width: 270px;
       }

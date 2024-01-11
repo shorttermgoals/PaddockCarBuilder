@@ -37,7 +37,6 @@ function HomeButtons({type, source, hiper}: Props){
 
     const [buttonStyles, setButtonStyles] = useState({
         imgSource : `../${source}.png`,
-        buttonFillClass : `home-button-fill ${type === '1' ? 'narrow-button-fill' : 'wide-button-fill'}`,
         rotate : 0,
     });
 
@@ -66,7 +65,6 @@ function HomeButtons({type, source, hiper}: Props){
 
             setButtonStyles({
                 imgSource : `../reseting.png`,
-                buttonFillClass : `home-button-fill ${type === '1' ? 'narrow-button-fill' : 'wide-button-fill-loading'}`,
                 rotate : 0,
             });
 
@@ -82,7 +80,6 @@ function HomeButtons({type, source, hiper}: Props){
                 clearInterval(rotationInterval); // Stop the image from rotating
                 setButtonStyles({
                     imgSource : `../${source}.png`,
-                    buttonFillClass : `home-button-fill ${type === '1' ? 'narrow-button-fill' : 'wide-button-fill'}`,
                     rotate : 0,
                 });
             }, 720);
@@ -95,11 +92,11 @@ function HomeButtons({type, source, hiper}: Props){
 
     const hprv = `/${hiper}`;
     const buttonClass = `home-button ${type === '1' ? 'narrow-button' : 'wide-button'}`;
-
+    const buttonFillClass = `home-button-fill ${type === '1' ? 'narrow-button-fill' : 'wide-button-fill'}`;
 
     return <Link to={hprv} style={{width: 'fit-content'}} onClick={handleClick}>
         <div className={buttonClass}>
-            <div className={buttonStyles.buttonFillClass}>
+            <div className={buttonFillClass}>
                 <img
                     className="home-button-fill-content"
                     style={{transform: `rotate(${buttonStyles.rotate}deg)`}}

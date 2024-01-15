@@ -19,6 +19,7 @@ interface CarData {
     wing: number;
     rims: number;
     mirrors: number;
+    paint: string;
   }
 
 function HomeButtons({type, source, hiper,optText}: Props){
@@ -35,6 +36,7 @@ function HomeButtons({type, source, hiper,optText}: Props){
         wing: 0,
         rims: 0,
         mirrors: 1,
+        paint: 'filter: invert(79%) sepia(5%) saturate(0%) hue-rotate(66deg) brightness(103%) contrast(99%);',
       }
     );
 
@@ -53,6 +55,7 @@ function HomeButtons({type, source, hiper,optText}: Props){
             wing: 0,
             rims: 0,
             mirrors: 1,
+            paint: 'grey',
     
     
         }));

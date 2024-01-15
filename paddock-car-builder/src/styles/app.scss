@@ -3,6 +3,9 @@
   src: url('../fonts/KonnectBlack.otf');
 }
 
+//.filter-new-color{
+  //filter: invert(31%) sepia(76%) saturate(7499%) hue-rotate(353deg) brightness(93%) contrast(128%);
+//}
 h1,a{
   font-family: 'konnect';
 }
@@ -19,7 +22,7 @@ body{
 }
 
 .button{
-    width: 110px;
+    width: 106px;
     transition: all;
   };
 
@@ -144,7 +147,7 @@ body{
 @mixin workshop-sides{
   @include containers;
   width: 300px;
-  margin: 10px 0px;
+  margin: 0px 0px;
   grid-row-gap: 20px; 
 }
 
@@ -228,7 +231,7 @@ body{
     &-wall{
       margin-top: 30px;
       width: 800px;
-      height: 500px;
+      height: 580px;
       background-color: #bebebe;
       display: grid;
       justify-items: center;
@@ -289,6 +292,11 @@ body{
     width: 500px;
     position: absolute;
   }
+
+  svg{
+    width: 500px;
+    position: absolute;
+  }
 }
 
 .reset-alert{
@@ -333,7 +341,7 @@ body{
 
       &-wall{
         width: 700px;
-        height: 500px;
+        height: 580px;
       }
 
       &-car{
@@ -387,11 +395,12 @@ body{
   
       &-wall{
         width: 590px;
-        height: 500px;
+        height: 580px;
       }
 
       &-car{
         width: 590px;
+        height: 180px;
       }
     }
   }
@@ -401,6 +410,10 @@ body{
   
   .car{
     img{
+      width: 400px;
+    }
+
+    svg{
       width: 400px;
     }
   }
@@ -459,11 +472,12 @@ body{
   
       &-wall{
         width: 460px;
-        height: 500px;
+        height: 590px;
       }
 
       &-car{
         width: 460px;
+        height: 130px
       }
       
     }
@@ -493,6 +507,10 @@ body{
   
   .car{
     img{
+      width: 350px;
+    }
+
+    svg{
       width: 350px;
     }
   }
@@ -536,7 +554,7 @@ body{
 
     @mixin workshop-sides{
       width: 100px;
-      margin: 100px 0px;
+      margin: 67px 0px;
       grid-row-gap: 18px; 
     }
   
@@ -640,10 +658,14 @@ body{
     img{
       width: 300px;
     }
+
+    svg{
+      width: 300px;
+    }
   }
 
   .button{
-    width: 65px;
+    width: 60px;
   }
   
   .button-tiny{
@@ -724,7 +746,7 @@ body{
 
       &-car{
         width: 290px;
-        height: 130px;
+        height: 110px;
       }
     }
 
@@ -783,8 +805,16 @@ body{
 
 @media only screen and (max-width: 460px) {
   
+  .button{
+    width: 56px;
+  }
+
   .car{
     img{
+      width: 270px;
+    }
+
+    svg{
       width: 270px;
     }
   }
@@ -856,10 +886,14 @@ body{
     img{
       width: 220px;
     }
+
+    svg{
+      width: 220px;
+    }
   }
 
   .button{
-    width: 55px;
+    width: 50px;
   }
 
   .container{
@@ -880,7 +914,7 @@ body{
   
     @mixin workshop-sides{
       width: 80px;
-      margin: 54px 0px;
+      margin: 30px 0px;
       grid-row-gap: 15px;
     }
 
@@ -905,7 +939,7 @@ body{
 
       &-car{
         width: 210px;
-        height: 60px;
+        height: 70px;
       }
     }
 
@@ -1034,6 +1068,10 @@ body{
   
   .car{
     img{
+      width: 200px;
+    }
+
+    svg{
       width: 200px;
     }
   }

@@ -6,6 +6,13 @@ import Workshop from './pages/Workshop'
 import NoPage from "./pages/NoPage";
 import './styles/app.scss';
 
+export function AddLibrary(url: string): void {
+  const script = document.createElement("script");
+  script.src = url;
+  script.async = true;
+  document.body.appendChild(script);
+}
+
 function App(){
 
   return (
@@ -20,6 +27,8 @@ function App(){
 
         </Routes>
       </BrowserRouter>
+
+      
     </div>
   )
 }

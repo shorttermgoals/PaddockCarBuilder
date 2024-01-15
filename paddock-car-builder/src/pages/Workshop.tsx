@@ -16,6 +16,7 @@ interface CarData {
     wing: number;
     rims: number;
     mirrors: number;
+    paint: string;
   }
 
 function Workshop(){
@@ -36,6 +37,7 @@ const [newCarData, setNewCarData] = useState<CarData>(() => getCarData() || {
     wing: 0,
     rims: 0,
     mirrors: 1,
+    paint: "grey",
   });
 
 
@@ -46,8 +48,10 @@ const updateCarParts = (part: string, partNumber: string) => {
     let newSkirt = newCarData.skirt;
     let newWing = newCarData.wing;
     let newRims = newCarData.rims;
-    let newMirrors = newCarData.mirrors
-    
+    let newMirrors = newCarData.mirrors;
+    //const elements = carRef.current?.querySelectorAll('.filter-new-color');
+    let newPaint = newCarData.paint;
+
 
     if (part === 'front') {
         newFront = parseInt(partNumber);
@@ -61,9 +65,26 @@ const updateCarParts = (part: string, partNumber: string) => {
         newRims = parseInt(partNumber);
     } else if (part === 'mirrors') {
         newMirrors = parseInt(partNumber);
+    } else if (part === 'paint'){
+        if(parseInt(partNumber) === 1){
+            newPaint = "white";
+        } else if (parseInt(partNumber) === 2){
+            newPaint = "red";
+        } else if (parseInt(partNumber) === 3){
+            newPaint = "yellow";
+        } else if (parseInt(partNumber) === 4){
+            newPaint = "jade";
+        } else if (parseInt(partNumber) === 5){
+            newPaint = "blue";
+        } else if (parseInt(partNumber) === 6){
+            newPaint = "grey";
+        } else if (parseInt(partNumber) === 7){
+            newPaint = "black";
+        }
+    
     }
-
     // console.log("Numero seleccionado: " + selectedNumber.number); 
+    
 
     setNewCarData((prevData) => ({
         ...prevData,
@@ -73,15 +94,24 @@ const updateCarParts = (part: string, partNumber: string) => {
         wing: newWing,
         rims: newRims,
         mirrors: newMirrors,
+        paint: newPaint,
     }));
 };
+
+const carRef = useRef<HTMLDivElement>(null);
 
 // useEffect se usa para realizar operaciones cada vez que se renderice el componente
 useEffect(() => {
 
+    
     setCarData(newCarData);
 
+
+    //const elements = document.querySelectorAll('.filter-new-color');
+    
+
 }, [selectedNumber, selectedPart, activeSelectedPart]);
+
 
 const handlePartClick = (name:string) => {
 
@@ -108,6 +138,7 @@ return <>
                 <PartButton name='wing' isActive={activePart === "wing"} onClick={() => handlePartClick('wing')}/>                
                 <PartButton name='mirrors' isActive={activePart === "mirrors"} onClick={() => handlePartClick('mirrors')}/>                
                 <PartButton name='rims' isActive={activePart === "rims"} onClick={() => handlePartClick('rims')}/>
+                <PartButton name='paint' isActive={activePart === "paint"} onClick={() => handlePartClick('paint')}/>
         </div>
         <div className='container-workshop-middle'>
             <div className='container-workshop-wall'>
@@ -116,13 +147,13 @@ return <>
                 src='../poster.png'
                 alt='Paddock poster'
                 />
-                <div className='container-workshop-car'>
+                <div className='container-workshop-car' ref={carRef}>
                 <Car {...newCarData}/>
                 </div>
             </div>
         </div>
         <div className='container-workshop-right'>
-            {activePart && [...Array(7).keys()].map(i => (
+            {activePart && [...Array(8).keys()].map(i => (
                 <SelectPartButton
                 key={i.toString()}
                 name={activePart}

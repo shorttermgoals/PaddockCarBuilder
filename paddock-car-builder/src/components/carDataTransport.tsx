@@ -8,6 +8,7 @@ interface CarData {
     wing: number;
     rims: number;
     mirrors: number;
+    paint: string;
   }
   
   export const getCarData = (): CarData | null => {

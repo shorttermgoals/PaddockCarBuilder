@@ -256,6 +256,7 @@ body{
     @include containers;
 
     &-header{
+      padding-top: 30px;
       font-size: 150px;
     }
 
@@ -266,18 +267,6 @@ body{
     &-img{
       width: 800px;
     }
-  }
-
-  &-loading{
-    position: absolute;
-    z-index: 99999;
-    width: 95%;
-    height: 95%;
-    background-color: #dddddd;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-
   }
 
 
@@ -487,6 +476,7 @@ body{
       @include containers;
   
       &-header{
+        padding-top: 80px;
         font-size: 105px;
       }
   
@@ -588,6 +578,7 @@ body{
       @include containers;
   
       &-header{
+        padding-top: 90px;
         font-size: 80px;
       }
   
@@ -669,17 +660,17 @@ body{
   }
   
   .button-tiny{
-    margin-top: 45px;
-      height: 50px;
-      width: 70px;
+      margin-top: 45px;
+      height: 45px;
+      width: 55px;
   
   
       &-fill{
-        height: 36px;
-        width: 55px;
+        height: 35px;
+        width: 45px;
   
         img{
-          width: 28px;
+          width: 25px;
         }
       }
   }
@@ -895,6 +886,21 @@ body{
   .button{
     width: 50px;
   }
+
+  .button-tiny{
+    height: 40px;
+    width: 50px;
+
+
+    &-fill{
+      height: 30px;
+      width: 40px;
+
+      img{
+        width: 20px;
+      }
+    }
+}
 
   .container{
 

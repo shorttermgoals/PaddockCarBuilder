@@ -2,23 +2,13 @@ import CustomHeader from '../components/Header'
 import ReturnHomeButton from '../components/ReturnHomeButton'
 import Car from '../components/Car'
 import { getCarData } from '../components/carDataTransport'
-import { useState,useEffect } from 'react'
 
 function Garage(){
 
 const carData = getCarData();
 
-const [showLoading, setShowLoading] = useState(true);
 
-useEffect(() => {
-    // Hide LoadingScreen after specified time
-    const timeoutId = setTimeout(() => {
-        setShowLoading(false);
-    }, 0)
 
-    // Empty timeout after hiding component
-    return () => clearTimeout(timeoutId);
-},[]);
 
 
 return  <div>

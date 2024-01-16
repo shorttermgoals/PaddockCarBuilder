@@ -1,5 +1,4 @@
 import CustomHeader from '../components/Header'
-import LoadingScreen from '../components/LoadingScreen'
 import ReturnHomeButton from '../components/ReturnHomeButton'
 import Car from '../components/Car'
 import { getCarData } from '../components/carDataTransport'

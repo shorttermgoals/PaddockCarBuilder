@@ -1,5 +1,4 @@
 import CustomHeader from '../components/Header'
-import LoadingScreen from '../components/LoadingScreen'
 import Car from '../components/Car'
 import PartButton from '../components/PartButton'
 import SelectPartButton from '../components/SelectPartButton'
